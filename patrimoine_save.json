@@ -1,0 +1,70 @@
+{
+  "saved_at": "2026-02-19T16:57:01",
+  "salary": [
+    {
+      "Salaire": 37000,
+      "Date de début": "01/01/2023",
+      "Date de fin": "31/12/2023"
+    },
+    {
+      "Salaire": 39000,
+      "Date de début": "01/01/2024",
+      "Date de fin": "31/12/2024"
+    },
+    {
+      "Salaire": null,
+      "Date de début": null,
+      "Date de fin": null
+    },
+    {
+      "Salaire": null,
+      "Date de début": null,
+      "Date de fin": null
+    },
+    {
+      "Salaire": null,
+      "Date de début": null,
+      "Date de fin": null
+    },
+    {
+      "Salaire": null,
+      "Date de début": null,
+      "Date de fin": null
+    },
+    {
+      "Salaire": null,
+      "Date de début": null,
+      "Date de fin": null
+    }
+  ],
+  "budget": {
+    "Logement": {
+      "Loyer / crédit": 850,
+      "Charges & énergie": 120,
+      "Assurance habitation": 30
+    },
+    "Alimentation": {
+      "Courses": 350,
+      "Restaurants": 120
+    },
+    "Transport": {
+      "Carburant / transports": 150,
+      "Assurance auto": 80
+    },
+    "Loisirs": {
+      "Sorties & culture": 80,
+      "Abonnements": 40
+    },
+    "Épargne": {
+      "Épargne de précaution": 200,
+      "Investissements": 150
+    },
+    "Santé": {
+      "Mutuelles": 70,
+      "Soins": 50
+    },
+    "Autre": {
+      "Divers": 100
+    }
+  }
+}
