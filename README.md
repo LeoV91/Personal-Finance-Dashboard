@@ -32,11 +32,11 @@ Ce n’est ni un conseil financier ni un outil professionnel, mais un support pe
 
 
 
-## 🖥️ Interface
+## Interface
 
 ### Module Salaire — Vue d'ensemble
 
-IMAGE !!!!!! ICI !!!!!!!!!!!!!
+![Aperçu de l'application](images/ProjectionPatrimonialeSalaire.png)
 
 ## Fonctionnalités actuelles
 
@@ -55,11 +55,12 @@ IMAGE !!!!!! ICI !!!!!!!!!!!!!
 
 ### Module Immobilier *(à venir)*
 
-IMAGE !!!!!! ICI !!!!!!!!!!!!!
+![Aperçu de l'application](images/ProjectionPatrimonialeImmobilier.png)
+
 
 ### Module Investissement *(à venir)*
 
-IMAGE !!!!!! ICI !!!!!!!!!!!!!
+![Aperçu de l'application](images/ProjectionPatrimonialeInvestissement.png)
 
 
 ## Installation & lancement
@@ -124,60 +125,6 @@ numpy>=1.26.0
 scipy>=1.11.0
 ```
 
-
-## Architecture du projet
-
-```
-patrimoine/
-│
-├── app.py                    # Point d'entrée — Dash init, injection des données sauvegardées
-├── config.py                 # Palette de couleurs, constantes, styles CSS partagés
-├── figures.py                # Constructeurs Plotly (distribution PDF, projection, Sankey)
-├── layout.py                 # Arbre de composants Dash (HTML + stores globaux)
-├── callbacks.py              # Réactivité — @callback (CRUD budget, save/restore, projection)
-│
-├── SalaryProjectionFunc.py   # Fonctions métier salaire
-├── patrimoine_save.json      # Données persistées — généré automatiquement
-│
-├── requirements.txt
-└── README.md
-```
-
-**Séparation des responsabilités :**
-
-```
-config.py        ─────────────────────────────────────┐
-                                                       │
-figures.py       ← config                             │
-layout.py        ← config + figures                   ▼
-callbacks.py     ← config + figures + layout    app.py (entrée)
-                                                       │
-                                                       ▼
-                                            localhost:8050
-```
-
-**Stratégie de persistance :**
-
-```
-[Démarrage app.py]
-      │
-      ├─ patrimoine_save.json existe ?
-      │        ├─ OUI → charge salary + budget
-      │        └─ NON → valeurs d'initialisation par défaut
-      │
-      └─ injecte dans salary-store + app-budget-store (dcc.Store globaux)
-                │
-                ▼
-      [Callback restore_on_load]  ←  déclenché à chaque chargement/refresh
-                │
-                └─ initialise DataTable + budget-store local
-
-[Bouton Sauvegarder]
-      └─ écrit patrimoine_save.json + met à jour les stores globaux
-```
-
----
-
 ## Roadmap
 
 ### Module Immobilier
@@ -202,7 +149,6 @@ callbacks.py     ← config + figures + layout    app.py (entrée)
 - [ ] Import de relevés bancaires CSV pour alimenter le budget automatiquement
 - [ ] Thème clair / sombre
 
----
 
 ## Stack technique
 
@@ -215,19 +161,14 @@ callbacks.py     ← config + figures + layout    app.py (entrée)
 | Persistance | JSON local | Sauvegarde légère sans base de données |
 | Typographie | Syne + DM Mono | Google Fonts — identité visuelle |
 
----
 
 ## Licence
 
 Distribué sous licence **MIT**. Voir [`LICENSE`](LICENSE) pour plus d'informations.
 
----
+
 
 <div align="center">
-
-**Fait avec rigueur et curiosité** · par un ingénieur qui gère aussi ses finances 📐
-
-<br>
 
 *Les données affichées (distribution INSEE, etc.) sont utilisées à titre indicatif uniquement.*
 *Ce projet ne constitue pas un conseil financier ou d'investissement.*
